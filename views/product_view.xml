@@ -11,5 +11,21 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="product_product_tree_inherit" model="ir.ui.view">
+            <field name="name">product.product.multicurrency.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lst_price']" position="attributes">
+                    <attribute name="widget">monetary</attribute>
+                    <attribute name="options">{'currency_field': 'currency_price'}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='price']" position="attributes">
+                    <attribute name="widget">monetary</attribute>
+                    <attribute name="options">{'currency_field': 'currency_price'}</attribute>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
