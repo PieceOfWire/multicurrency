@@ -18,13 +18,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'stock', 'sale_management'],
+    'depends': ['base', 'stock', 'sale_management', 'purchase'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/product_view.xml',
         'views/sale_order_view.xml',
+        'views/purchase_order_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [],
