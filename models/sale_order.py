@@ -34,6 +34,6 @@ class CurrencySaleOrderLine(models.Model):
     @api.onchange("product_id")
     def display_product_price(self):
         for line in self:
-            line.price_unit = line.product_id.list_price
-            line.purchase_price = line.product_id.standard_price
+            line.price_unit = line.product_id.lst_price
+            line.purchase_price = line.product_id.price
             line.display_currency = line.product_id.currency_price
