@@ -3,7 +3,9 @@
     'name': "Multi-currency",
 
     'summary': """
-        Manage multi currency in sales and purchase orders""",
+        Specify currency in which products' prices/costs are expressed. Correctly
+        show multi-currency pricing in sales orders and automatically update
+        MXN to USD exchange rate. """,
 
     'description': """
     """,
@@ -25,6 +27,8 @@
         # 'security/ir.model.access.csv',
         'views/product_view.xml',
         'views/sale_order_view.xml',
+        'views/res_config_settings_view.xml',
+        'data/ir_cron.xml',
     ],
     # only loaded in demonstration mode
     'demo': [],
