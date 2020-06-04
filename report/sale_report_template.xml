@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="multicurrency_sale_report" inherit_id="sale.report_saleorder_document">
-            <xpath expr="(//div[@class='col-xs-3'])[5]" position="after">
-                <div class="col-xs-3">
+        <template id="multicurrency_sale_report" inherit_id="cdfi_invoice.report_saleorder_document">
+            <xpath expr="//div[@name='payment_term']" position="after">
+                <div>
                     <strong>Moneda:</strong>
                     <p t-field="doc.pricelist_id.currency_id.name"/>
                 </div>

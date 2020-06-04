@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='payment_term_id']" position="after">
-                        <button name="calc_currency_price" type="object" string="Calcular precios" class="oe_highlight"
+                        <button name="calc_currency_price" type="object" string="Convertir monedas" class="oe_highlight"
                         style="margin-top: 15px;"/>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="before">

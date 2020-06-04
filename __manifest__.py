@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'stock', 'sale_management', 'purchase'],
+    'depends': ['base', 'stock', 'sale_management', 'purchase', 'cdfi_invoice'],
 
     # always loaded
     'data': [
@@ -28,6 +28,7 @@
         'views/product_view.xml',
         'views/sale_order_view.xml',
         'views/res_config_settings_view.xml',
+        'report/sale_report_template.xml',
         'data/ir_cron.xml',
     ],
     # only loaded in demonstration mode
