@@ -13,11 +13,16 @@ class MultiCurrency(models.Model):
         val = self.env["ir.config_parameter"].sudo()
         bmx_token_banxico = val.get_param("multicurrency.bmx_token")
 
-        yesterday = datetime.today()
-        yesterday -= timedelta(1)
-        yesterday = yesterday.strftime(r"%Y-%m-%d")
-        req_url = API_URL + yesterday + "/" + yesterday
-
+        date = datetime.today()
+        if date.weekday() == 0: # On monday use exchange rate from friday
+            date -= timedelta(3)
+        elif date.weekday() == 5 or date.weekday() == 6: # Exchange rate not updated on weekends.
+            return -1
+        else:
+            date -= timedelta(1)
+            
+        date = date.strftime(r"%Y-%m-%d")
+        req_url = API_URL + date + "/" + date
         bmx_header = {"Bmx-Token": bmx_token_banxico}
         response = requests.get(req_url, headers=bmx_header)
         if response.status_code != 200:
@@ -28,6 +33,8 @@ class MultiCurrency(models.Model):
     def update_mxn_usd_rate(self):
         try:
             rate = self.get_banxico_mxn_usd_rate()
+            if rate == -1: # Weekday. Rates are not updated
+                return
             # Truncate to 6 decimal places
             rate = math.trunc(rate * (10.0 ** 6)) / (10.0 ** 6)
             date = fields.Date.today()
