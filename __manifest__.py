@@ -27,7 +27,6 @@
         # 'security/ir.model.access.csv',
         'views/product_view.xml',
         'views/sale_order_view.xml',
-        'views/res_config_settings_view.xml',
         'report/sale_report_template.xml',
         'data/ir_cron.xml',
     ],
